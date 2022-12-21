@@ -1,4 +1,4 @@
-# google-books-api-app
+# Google Books API App
 
 # npm install chalk@2.4 boxen@4.0
 # npm install yargs@13.2
