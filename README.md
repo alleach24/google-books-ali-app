@@ -12,3 +12,9 @@
 - npm install axios
 - npm install prompt-sync
 - npm install inquirer
+
+##### Remaining things to do:
+- code commenting
+- write tests
+- improve function names
+- add color to console text
