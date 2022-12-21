@@ -13,7 +13,8 @@
 - npm install prompt-sync
 - npm install inquirer
 
-##### Remaining things to do:
+
+### Remaining things to do:
 - code commenting
 - write tests
 - improve function names
