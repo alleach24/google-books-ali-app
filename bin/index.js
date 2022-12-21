@@ -1,21 +1,16 @@
 #!/usr/bin/env node
 
-// const yargs = require("yargs");
-// const axios = require("axios");
 import axios from 'axios';
 import promptSync from 'prompt-sync';
-// const prompt = require('prompt-sync')();
 import inquirer from 'inquirer';
-import { read } from 'fs';
 
 
 let readingLists = {};
 
-
 console.log('Welcome to this Google Books API CLI app!');
 async function main() {
-    const userdo = await inquirer.prompt({
-        name: 'do',
+    const userAction = await inquirer.prompt({
+        name: 'action',
         type: 'list',
         message:'What would you like to do?',
         choices: [
@@ -24,27 +19,35 @@ async function main() {
             "Quit application"
         ]
     })
-    if (userdo.do == "Search for books") {
-        // console.log('You selected "Search for books"');
+    if (userAction.action == "Search for books") {
         searchBooks();
-    } else if (userdo.do == "View reading lists") {
-        // console.log('You selected "View reading lists"');
+    } else if (userAction.action == "View reading lists") {
         viewReadingLists();
     } 
 }
 main()
 
 
+function searchBooks() {
+    let prompt = promptSync();
+    let search = prompt('Enter a search query: ')
+    while (!search){
+        console.log("Please enter a valid search term.");
+        search = prompt('Enter a query: ');
+    }
+    let url = `https://www.googleapis.com/books/v1/volumes?q=${search}`
+    retrieveBooks(url)
+}
+
 const retrieveBooks = (url) => {
-    // console.log('hit retrieveBooks function')
-    // console.log(url)
-    axios.get(url).then(function (res) {
-        addBooksToList(res.data)
+    axios.get(url).then(function (response) {
+        addBooksToList(response.data)
     });
 }
+
 async function addBooksToList(data) {
     const book = await inquirer.prompt({
-        name: 'viewBook',
+        name: 'bookData',
         type: 'list',
         message:'Select a book to add to a reading list',
         choices: [
@@ -56,57 +59,42 @@ async function addBooksToList(data) {
             // do later: handle if the data has less than 5 results
         ]
     })
-    // console.log(`Saving ${book.viewBook} to Reading List`)
     const list = await inquirer.prompt({
-        name: 'lists',
+        name: 'listOptions',
         type: 'list',
         message:'Which reading list should it be saved to: ',
-        choices: [...Object.keys(readingLists), "New List"] // do later: have it only show this if length of readingLists is more than 1
+        choices: [...Object.keys(readingLists), "New List"]
     })
-    if (list.lists == "New List") {
-        // console.log('make a new list')
+    if (list.listOptions == "New List") {
         let title = makeList()
-        addBookToList(book.viewBook, title)
+        addBookToList(book.bookData, title)
     } else {
-        addBookToList(book.viewBook, list.lists)
+        addBookToList(book.bookData, list.listOptions)
     }
     console.log("Book successfully added")
-    // console.log(readingLists)
     main()
 }
+
 function addBookToList(book, list) {
     readingLists[list].push(book)
 }
+
 function makeList() {
     let prompt = promptSync();
-    let title = prompt('Enter the list title: ')
+    let title = prompt('Enter the list title: ') // account for if user enters no title
     readingLists[title] = []
-    // console.log(readingLists)
     return title
 }
-function searchBooks() {
-    let prompt = promptSync();
-    let search = prompt('Enter a search query: ')
-    while (!search){
-        console.log("Please enter a valid search term.");
-        search = prompt('Enter a query: ');
-    }
-    let url = `https://www.googleapis.com/books/v1/volumes?q=${search}` 
-    // console.log(url)
-    retrieveBooks(url)
-}
-
 
 
 async function viewReadingLists() {
-    const readingList = await inquirer.prompt({
+    const list = await inquirer.prompt({
         name: 'readingLists',
         type: 'list',
         message:'Reading Lists:',
-        choices: Object.keys(readingLists), //handle if readingLists is blank
+        choices: Object.keys(readingLists), // handle for if there are no existing reading lists
     })
-    // console.log(readingList)
-    console.log(`List: ${readingList.readingLists}`)
-    console.log(readingLists[readingList.readingLists])
+    console.log(`List: ${list.readingLists}`)
+    console.log(readingLists[list.readingLists])
     main()
 }
