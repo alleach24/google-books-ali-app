@@ -6,6 +6,7 @@
   "bin": {
     "google-books-ali-app": "./bin/index.js"
   },
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,6 +24,7 @@
     "axios": "^0.21.4",
     "boxen": "4.0",
     "chalk": "2.4",
+    "inquirer": "^9.1.4",
     "prompt-sync": "^4.2.0",
     "yargs": "13.2"
   }
