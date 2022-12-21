@@ -9,7 +9,7 @@ import inquirer from 'inquirer';
 import { read } from 'fs';
 
 
-let readingLists = [];
+let readingLists = {};
 
 
 console.log('Welcome to this Google Books API CLI app!');
@@ -25,10 +25,10 @@ async function main() {
         ]
     })
     if (userdo.do == "Search for books") {
-        console.log('You selected "Search for books"');
+        // console.log('You selected "Search for books"');
         searchBooks();
     } else if (userdo.do == "View reading lists") {
-        console.log('You selected "View reading lists"');
+        // console.log('You selected "View reading lists"');
         viewReadingLists();
     } 
 }
@@ -56,33 +56,32 @@ async function addBooksToList(data) {
             // do later: handle if the data has less than 5 results
         ]
     })
-    console.log(`Saving ${book.viewBook} to Reading List`)
+    // console.log(`Saving ${book.viewBook} to Reading List`)
     const list = await inquirer.prompt({
         name: 'lists',
         type: 'list',
         message:'Which reading list should it be saved to: ',
-        choices: [
-            [...readingLists],
-            "New List"
-        ]
+        choices: [...Object.keys(readingLists), "New List"] // do later: have it only show this if length of readingLists is more than 1
     })
     if (list.lists == "New List") {
-        console.log('make a new list')
+        // console.log('make a new list')
         let title = makeList()
         addBookToList(book.viewBook, title)
     } else {
         addBookToList(book.viewBook, list.lists)
     }
     console.log("Book successfully added")
+    // console.log(readingLists)
     main()
-    
 }
 function addBookToList(book, list) {
+    readingLists[list].push(book)
 }
 function makeList() {
     let prompt = promptSync();
     let title = prompt('Enter the list title: ')
-    readingLists.push([title, []])
+    readingLists[title] = []
+    // console.log(readingLists)
     return title
 }
 function searchBooks() {
@@ -104,8 +103,10 @@ async function viewReadingLists() {
         name: 'readingLists',
         type: 'list',
         message:'Reading Lists:',
-        choices: readingLists, //handle if readingLists is blank
+        choices: Object.keys(readingLists), //handle if readingLists is blank
     })
-    console.log(readingList)
-    console.log(readingLists)
+    // console.log(readingList)
+    console.log(`List: ${readingList.readingLists}`)
+    console.log(readingLists[readingList.readingLists])
+    main()
 }
