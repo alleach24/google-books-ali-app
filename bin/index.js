@@ -52,10 +52,10 @@ async function addBooksToList(data) {
         message:'Select a book to add to a reading list',
         choices: [
             `"${data.items[0].volumeInfo.title}" by ${data.items[0].volumeInfo.authors}, published by ${data.items[0].volumeInfo.publisher}.`,
-            `"${data.items[1].volumeInfo.title}" by ${data.items[0].volumeInfo.authors}, published by ${data.items[0].volumeInfo.publisher}.`,
-            `"${data.items[2].volumeInfo.title}" by ${data.items[0].volumeInfo.authors}, published by ${data.items[0].volumeInfo.publisher}.`,
-            `"${data.items[3].volumeInfo.title}" by ${data.items[0].volumeInfo.authors}, published by ${data.items[0].volumeInfo.publisher}.`,
-            `"${data.items[4].volumeInfo.title}" by ${data.items[0].volumeInfo.authors}, published by ${data.items[0].volumeInfo.publisher}.`,
+            `"${data.items[1].volumeInfo.title}" by ${data.items[1].volumeInfo.authors}, published by ${data.items[1].volumeInfo.publisher}.`,
+            `"${data.items[2].volumeInfo.title}" by ${data.items[2].volumeInfo.authors}, published by ${data.items[2].volumeInfo.publisher}.`,
+            `"${data.items[3].volumeInfo.title}" by ${data.items[3].volumeInfo.authors}, published by ${data.items[3].volumeInfo.publisher}.`,
+            `"${data.items[4].volumeInfo.title}" by ${data.items[4].volumeInfo.authors}, published by ${data.items[4].volumeInfo.publisher}.`,
             // do later: handle if the data has less than 5 results
         ]
     })
