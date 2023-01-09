@@ -5,6 +5,7 @@
 **Andrea Leach**
 
 **12.21.2022**
+**Edited 1.8.2023**
 
 This Google Books API Application allows users to interact with the Google Books API. Through the App, users can view book information based on search terms. Users can also create readings lists and add books to the reading lists. 
 
