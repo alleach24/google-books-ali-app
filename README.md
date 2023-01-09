@@ -10,6 +10,14 @@
 This Google Books API Application allows users to interact with the Google Books API. Through the App, users can view book information based on search terms. Users can also create readings lists and add books to the reading lists. 
 
 
+### Installation
+##### Requirements:
+- blah
+- blah
+##### Steps:
+1. alsjdfl
+2. alsjdf
+3. asldf
 
 ### Installed packeges
 
