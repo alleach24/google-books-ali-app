@@ -12,18 +12,19 @@ This Google Books API Application allows users to interact with the Google Books
 
 ### Installation
 ##### Requirements:
-- blah
+- node.js - https://nodejs.org/en/download/
 - blah
 ##### Steps:
-1. alsjdfl
-2. alsjdf
-3. asldf
-
-### Installed packeges
-
+1. Clone the repository - https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+2. Run the following command prompts from the command line:
 - npm install axios
 - npm install prompt-sync
 - npm install inquirer
+
+### Usage
+- To run the program, use the following command: **node .**
+- Use arrow key functions and the enter button to select options
+
 
 
 ### Remaining things to do:
