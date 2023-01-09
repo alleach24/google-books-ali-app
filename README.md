@@ -10,24 +10,29 @@
 This Google Books API Application allows users to interact with the Google Books API. Through the App, users can view book information based on search terms. Users can also create readings lists and add books to the reading lists. 
 
 
-### Installation
-##### Requirements:
+## Installation
+#### Requirements:
 - node.js - https://nodejs.org/en/download/
-- blah
-##### Steps:
+#### Steps:
 1. Clone the repository - https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 2. Run the following command prompts from the command line:
-- npm install axios
-- npm install prompt-sync
-- npm install inquirer
+    - npm install axios
+    - npm install prompt-sync
+    - npm install inquirer
 
-### Usage
-- To run the program, use the following command: **node .**
+## Usage
+- To run the program, use the following command: 
+    **node .**
 - Use arrow key functions and the enter button to select options
+#### Create a new reading list
+#### Searching for a book
+#### Adding a book to a reading list
+#### Viewing a reading list
 
 
 
-### Remaining things to do:
+
+## Remaining things to do:
 - code commenting
 - write tests
 - improve function names
