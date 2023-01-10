@@ -20,7 +20,7 @@ describe('Index', function () {
 
   it('makeList() should return the title i entered', function () {
     let result = makeList();
-    assert.equal(result, 'hello1');
+    assert.equal(result, 'test-title');
   });
   it('makeList() should return a string', function () {
     let result = makeList();
