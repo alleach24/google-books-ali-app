@@ -37,14 +37,10 @@ This Google Books API Application allows users to interact with the Google Books
 
 
 
-## Remaining things to do:
-- code commenting
-- write tests
-- improve function names
-- add color to console text
 
 
-### Project statement:
+
+## Project statement:
 Create a command line application that allows you to use the Google Books API to search for books and construct a reading list.
 
 You do not have to use a private GitHub repo for this.
