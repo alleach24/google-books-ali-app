@@ -7,10 +7,13 @@ import inquirer from 'inquirer';
 const index = () => {
     return 'hello';
 }
-export default index
+const index1 = () => {
+    return 'hello1';
+}
+export { index, index1 };
 
 
-// let readingLists = {};
+let readingLists = {};
 
 // console.log('Welcome to this Google Books API CLI app!');
 // async function main() {
@@ -94,20 +97,20 @@ export default index
 // }
 
 
-// function makeList() {
-//     let prompt = promptSync();
-//     let title = ''
-//     while (title == '') {
-//         title = prompt('Enter the list title: ') // account for if user enters no title
-//         if (title == '') {
-//             console.log('Please enter a valid title')
-//         }
-//     }
-//     readingLists[title] = []
-//     return title
-// }
+function makeList() {
+    let prompt = promptSync();
+    let title = ''
+    while (title == '') {
+        title = prompt('Enter the list title: ') // account for if user enters no title
+        if (title == '') {
+            console.log('Please enter a valid title')
+        }
+    }
+    readingLists[title] = []
+    return title
+}
 
-
+export { makeList }
 
 
 // async function viewReadingLists() {
