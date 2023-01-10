@@ -25,9 +25,14 @@ This Google Books API Application allows users to interact with the Google Books
     **node .**
 - Use arrow key functions and the enter button to select options
 #### Create a new reading list
-#### Searching for a book
-#### Adding a book to a reading list
-#### Viewing a reading list
+![Creating a new reading list](images/create_new_reading_list.png)
+#### Search for a book
+![Searching for a book](images/search_for_a_book.png)
+#### Add a book to a reading list
+![Adding a book to a list](images/add_book_to_list.png)
+![Saving a book to a list](images/save_book_to_list.png)
+#### View a reading list
+![View a reading list](images/view_reading_list.png)
 
 
 
