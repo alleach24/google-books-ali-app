@@ -29,10 +29,10 @@ This Google Books API Application allows users to interact with the Google Books
 #### Search for a book
 ![Searching for a book](images/search_for_a_book.png)
 #### Add a book to a reading list
-![Adding a book to a list](images/add_book_to_list.png)
+![Selecting a book](images/add_book_to_list.png)
 ![Saving a book to a list](images/save_book_to_list.png)
 #### View a reading list
-![View a reading list](images/view_reading_list.png)
+![Viewing a reading list](images/view_reading_list.png)
 
 
 
